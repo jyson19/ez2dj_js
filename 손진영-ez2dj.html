@@ -74,7 +74,13 @@
 
         }
 
-        #lane1, #lane2, #lane3, #lane4, #lane5, #lane6, #lane7 {
+        #lane1,
+        #lane2,
+        #lane3,
+        #lane4,
+        #lane5,
+        #lane6,
+        #lane7 {
             width: 80px;
             height: 600px;
             position: absolute;
@@ -84,7 +90,9 @@
             transition: 1s;
         }
 
-        /* #lane1 {} */
+        #lane1 {
+            left: 0px;
+        }
 
         #lane2 {
             left: 80px;
@@ -111,12 +119,12 @@
             float: right;
         }
 
-        #target_line{
+        #target_line {
             position: absolute;
             width: 570px;
             top: 530px;
             height: 30px;
-            background: linear-gradient(rgba(0, 0, 0, 0), lightgray, rgba(0, 0, 0, 0));
+            background: linear-gradient(rgba(0, 0, 0, 0), lightslategrey, rgba(0, 0, 0, 0));
         }
 
         #words>table {
@@ -134,9 +142,6 @@
             animation: hide_word 12s infinite;
             transition: 1s;
         }
-
-
-
 
         @keyframes hide_word {
             from {
@@ -163,16 +168,6 @@
                 color: snow;
             }
         }
-
-        /* #words>h3 {
-            position: absolute;
-            width: 80px;
-            left: 0;
-            top: 0;
-            margin: 0;
-            animation: hide_word 12s infinite;
-            transition: 1s;
-        } */
 
         #input {
             background: url("https://post-phinf.pstatic.net/MjAxODA0MzBfMTMx/MDAxNTI1MDY5Mjk4Mjg2.51OWZ6gUjfTDoQ5lYE7StRChvsJRIyK0tQGw2N10EUUg.ozmnTHMNF4zGMg4I7sPwh8AsZ6bkWFgy7B0MsEJATEsg.JPEG/1_2.jpg?type=w1200");
@@ -239,18 +234,11 @@
         let score_cnt = 0
         let loss_cnt = 0;
 
-        // let txt = "동창회, 향우회, 가족모임, 송별회, 망년회, 기도회, 친목회, 반상회, 신입생환영회, 오리엔테이션, 예배, 교회, 절, 학생회, 동아리, 스터디그룹, 학회, 설명회, 심포지움, 세미나, 워크숍, 친구, 학교친구, 고향친구, 동창, 선배, 후배, 가족, 친척, 이웃, 동료, 회원"
-        let txt = "Java, Python, ReactNative, Nodejs, Apollo, R, TypeScript, Spring, Oracle, MySQL, JavaScript, MsSQL, CSS, PHP, Ruby, MongoDB, JSON, AWS, MariaDB, Apache, CDN, Go, Rust, HTML, Git, REST, Elasticsearch, Redux, Bootstrap, StackOverflow, React, Vue, Angular, jQuery, Dart, GCP"
-
-        // let txt_list = txt.split(", ")
-        // let txt_list = txt.split(",").map((val) => val.trim())
-
         function add_word() {
             let table = document.createElement("table")
-            // h3.textContent = txt_list.splice(0, 1)
-            // let left = Math.floor(Math.random() * 30) * 20
             let left = 0
 
+            // note 생성
             function lanechoice() {
                 // let leftlist = [0, 80, 160, 240, 320, 400, 480]
                 let leftlist = [0, 80, 160, 320, 400, 480]
@@ -259,67 +247,9 @@
             }
             lanechoice()
             table.style.left = `${left}px`
-            table.style.top = `0px`
+            table.style.top = `-20px`
             words.appendChild(table)
         }
-
-
-
-
-        // 입력글자 찾아 삭제
-        // word.onkeydown = (event) => {
-        //     if (event.keyCode != 13) return
-        //     let notes = document.querySelectorAll("#words > table")
-        //     for (let table of tables) {
-        //         if (word.value == table.textContent) {
-        //             words.removeChild(table)
-        //             score_cnt++
-        //             score.textContent = `Score : ${score_cnt}`
-        //         }
-        //     }
-        //     word.value = "" // 입력글자삭제
-        // }
-
-        // note.onkeydown = (event) => {
-        // s
-        // if(event.keyCode == 83) {
-        //     let notes = document.querySelectorAll("#words > table")
-        //     for (let noteval of notes) {
-        //         if (note.top == noteval.top) {
-        //         words.removeChild(table)
-        //         score_cnt++
-        //         score.textContent = `Score : ${score_cnt}`
-        //         }
-        //     }
-        //     // s.style.background = "black"
-        //     // let notekeycode = 
-        //     // $("#s").keydown(function(e)) {
-        //     //     $(this).css("background-color", "black")
-
-        //     // });
-        // // d
-        // } else if(event.keyCode == 68) {
-
-        // // f
-        // } else if(event.keyCode == 70) {
-
-        // // spacebar
-        // } else if(event.keyCode == 32) {
-
-        // // h
-        // } else if(event.keyCode == 72) {
-
-        // // j
-        // } else if(event.keyCode == 74) {
-
-        // // k
-        // } else if(event.keyCode == 75) {
-
-        // }
-
-        // }
-
-
 
         (function () {
             document.addEventListener('keydown', function (e) {
@@ -327,19 +257,31 @@
                 // console.log('pushed key ' + e.key);
 
                 if (keyCode == 83) { // s
-                    lane1.style.background = 'linear-gradient(rgba(0, 0, 0, 0), tomato)';
+                    let lane1 = document.querySelector("#lane1")
+                    lane1.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightblue)';
+                    remove_note(lane1);
                 } else if (keyCode == 68) { // d
-                    lane2.style.background = 'linear-gradient(rgba(0, 0, 0, 0), tomato)';
+                    let lane2 = document.querySelector("#lane2")
+                    lane2.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightgreen)';
+                    remove_note(lane2);
                 } else if (keyCode == 70) { // f
-                    lane3.style.background = 'linear-gradient(rgba(0, 0, 0, 0), tomato)';
-                // } else if (keyCode == 32) { // spacebar
-                //     lane4.style.background = 'linear-gradient(rgba(0, 0, 0, 0), tomato)';
+                    let lane3 = document.querySelector("#lane3")
+                    lane3.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightblue)';
+                    remove_note(lane3);
+                    // } else if (keyCode == 32) { // spacebar
+                    //     lane4.style.background = 'linear-gradient(rgba(0, 0, 0, 0), tomato)';
                 } else if (keyCode == 74) { // j
-                    lane5.style.background = 'linear-gradient(rgba(0, 0, 0, 0), tomato)';
+                    let lane5 = document.querySelector("#lane5")
+                    lane5.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightblue)';
+                    remove_note(lane5);
                 } else if (keyCode == 75) { // k
-                    lane6.style.background = 'linear-gradient(rgba(0, 0, 0, 0), tomato)';
+                    let lane6 = document.querySelector("#lane6")
+                    lane6.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightgreen)';
+                    remove_note(lane6);
                 } else if (keyCode == 76) { // l
-                    lane7.style.background = 'linear-gradient(rgba(0, 0, 0, 0), tomato)';
+                    let lane7 = document.querySelector("#lane7")
+                    lane7.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightblue)';
+                    remove_note(lane7);
                 }
             })
         })();
@@ -355,27 +297,30 @@
             if (key) lane7.style.background = '';
         });
 
-
-
-
+        function remove_note(lane) {
+            let table_notes = document.querySelectorAll("#words > table")
+            let target_line = document.querySelector("#target_line")
+            for (let table of table_notes) {
+                if (table.style.left == lane.style.left) {
+                    if (table.style.top > `550px` && table.style.top < `680px`) {
+                        words.removeChild(table)
+                        score_cnt++
+                        score.textContent = `Score : ${score_cnt}`
+                    }
+                }
+            }
+        }
 
         // 속도, 크기 조절
-        let move_interval_ms = 200 // ms
-        let move_block = 60 // px
+        let move_interval_ms = 100 // ms
+        let move_block = 20 // px
 
 
         function move_words() {
-            // if (txt_list.length > 0 && loss_cnt < 10)
             add_word() // 단어추가
             let tables = document.querySelectorAll("#words > table")
-            // 추가할 단어없고 지울 단어도 없으면 종료
-            // if (txt_list.length == 0 && h3s.length == 0) {
-            //     fail.textContent = `게임 종료`
-            //     clearInterval(interval_id)
-            //     return
-            // }
 
-            words_top = 750
+            words_top = 770
             for (let table of tables) {
                 let top = parseInt(table.style.top) // 0px
                 top += move_block
@@ -384,12 +329,6 @@
                     words.removeChild(table)
                     loss_cnt++
                     fail.textContent = `Missing Notes : ${loss_cnt}`
-                    // if (loss_cnt >= 200) {
-                    //     clearInterval(interval_id)
-                    //     alert("Fail ! try again")
-                    //     location.reload()
-                    //     loss_cnt = 0
-                    // }
                 }
             }
         }
@@ -398,9 +337,7 @@
         let interval_id = setInterval(move_words, move_interval_ms)
 
     </script>
-    <iframe id="music" width="100" height="100"
-        src="https://www.youtube.com/embed/wq9zM5je8pg?autoplay=1&loop=1&enablejsapi=1&disablekb=1&rel=0"
-        frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen></iframe>
+    <iframe id="music" width="100" height="100" hidden src="https://www.youtube.com/embed/wq9zM5je8pg?autoplay=1&loop=1&enablejsapi=1&disablekb=1&rel=0" frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen></iframe>
 </body>
 
 </html>
