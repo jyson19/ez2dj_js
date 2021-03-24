@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <title>ez2dj</title>
     <style>
         * {
@@ -88,7 +87,6 @@
             position: absolute;
             float: left;
             margin: 0;
-            animation: hide_word 12s infinite;
             transition: 'all 1s';
         }
 
@@ -129,6 +127,12 @@
             background: linear-gradient(rgba(0, 0, 0, 0), lightslategrey, rgba(0, 0, 0, 0));
         }
 
+        @keyframes moveDown {
+            0% { top: -1.5rem; }
+            98% { top: 100%; opacity: 1; }
+            100% { top: 105%; opacity: 0; }
+        }
+
         #words>table {
             border: 5px groove mediumaquamarine;
             background: navajowhite;
@@ -136,19 +140,14 @@
             width: 80px;
             height: 20px;
 
-            /* animation : noteMove 1s linear; */
+            animation: moveDown 1s linear;
+
             position: absolute;
             left: 0;
             top: 0;
             margin: 0;
             transition: 1s;
         }
-
-        /* @keyframes noteMove {
-            0% { top: -20x; }
-            98% { top: 100%; opacity: 1; }
-            100% { top: 105%; opacity: 0; }
-        } */
 
         @-webkit-keyframes sparkle {
             from {
@@ -186,6 +185,9 @@
             z-index: 1;
             transform: scale(1.1) translateY(1px);
         }
+
+        
+
 
         #input {
             background: url("https://post-phinf.pstatic.net/MjAxODA0MzBfMTMx/MDAxNTI1MDY5Mjk4Mjg2.51OWZ6gUjfTDoQ5lYE7StRChvsJRIyK0tQGw2N10EUUg.ozmnTHMNF4zGMg4I7sPwh8AsZ6bkWFgy7B0MsEJATEsg.JPEG/1_2.jpg?type=w1200");
@@ -234,7 +236,6 @@
             <div id="lane6"></div>
             <div id="lane7"></div>
             <div id="target_line"></div>
-            <table class="movenote"></table>
         </div>
         <div id="input">
             <!-- <input type="text" name="" id="word" hidden> -->
@@ -251,6 +252,7 @@
     </div>
 
     <script>
+        let startTime = Date.now()
         let words = document.querySelector("#words")
         let word = document.querySelector("#word")
         let score_cnt = 0
@@ -261,43 +263,53 @@
             let table = document.createElement("table")
             table.style.left = `${left}px`
             table.style.top = `-20px`
-            table.setAttribute('class', 'movenote')
 
             words.appendChild(table)
         }
 
-        // function add_intro_note(left, cus_top) {
-        //     let table = document.createElement("table")
-        //     table.style.left = `${left}px`
-        //     table.style.top = cus_top +`px`
-        //     words.appendChild(table)
-        // }
-
+        function add_intro_note(left, cus_top) {
+            let table = document.createElement("table")
+            table.style.left = `${left}px`
+            table.style.top = cus_top +`px`
+            words.appendChild(table)
+        }
+        
         // lane 1
         // setTimeout(function () { add_intro_note(leftlist[0], 400) }, 0);
-        // setTimeout(function () { add_note(leftlist[0]) }, 350);
+        // setTimeout(function () { add_intro_note(leftlist[0], 460) }, 0);
+
+        
+        var note_s = [
+            setTimeout(function () { add_note(leftlist[0]) }, 350),
+            setTimeout(function () { add_note(leftlist[0]) }, 1000),
+            setTimeout(function () { add_note(leftlist[0]) }, 1100),
+            setTimeout(function () { add_note(leftlist[0]) }, 1200),
+            setTimeout(function () { add_note(leftlist[0]) }, 1300),
+            setTimeout(function () { add_note(leftlist[0]) }, 1400)
+        ];
 
         // lane 2
-         setTimeout(function () { add_note(leftlist[1]) }, 1600);
-         $(".movenote").animate({top: "620px"}, {duration: 2000, easing: "linear" });
-        setTimeout(function () { add_note(leftlist[1]) }, 3200);
-        setTimeout(function () { add_note(leftlist[1]) }, 3600);
+        // setTimeout(function () { add_intro_note(leftlist[1], 430) }, 0);
+        
+        // setTimeout(function () { add_note(leftlist[1]) }, 200);
+        // setTimeout(function () { add_note(leftlist[1]) }, 1100);
+        // setTimeout(function () { add_note(leftlist[1]) }, 1600);
 
 
         // lane 3
-         setTimeout(function () { add_note(leftlist[2]) }, 1400);
-        setTimeout(function () { add_note(leftlist[2]) }, 3400);
+        // setTimeout(function () { add_note(leftlist[2]) }, 800);
+        // setTimeout(function () { add_note(leftlist[2]) }, 1400);
 
         // lane 5
-         setTimeout(function () { add_note(leftlist[3]) }, 2000);
+        // setTimeout(function () { add_note(leftlist[3]) }, 2000);
 
 
         // lane 6
-         setTimeout(function () { add_note(leftlist[4]) }, 1800);
+        // setTimeout(function () { add_note(leftlist[4]) }, 1800);
 
 
         // lane 7
-         setTimeout(function () { add_note(leftlist[5]) }, 1600);
+        // setTimeout(function () { add_note(leftlist[5]) }, 1600);
 
 
 
@@ -352,35 +364,59 @@
         });
 
 
+        // 타겟 노트 제거(예전 방식)
+        // function remove_note(lane_left) {
+        //     let table_notes = document.querySelectorAll("#words > table")
+        //     let target_line = document.querySelector("#target_line")
+        //     let target_line_top = parseInt(target_line.style.top)
+        //     for (let table of table_notes) {
+        //         let table_top = parseInt(table.style.top)
+        //         if (table.style.left == lane_left + "px") {
+        //             //if (table_top == 740) {
+        //             if (table_top > 680 && table_top < 800) {
+        //                 words.removeChild(table)
+        //                 score_cnt++
+        //                 score.textContent = `Score : ${score_cnt}`
+        //             }
+        //         }
+        //     }
+        // }
         // 타겟 노트 제거
         function remove_note(lane_left) {
             let table_notes = document.querySelectorAll("#words > table")
             let target_line = document.querySelector("#target_line")
             let target_line_top = parseInt(target_line.style.top)
+            let note_s_index = [350, 1000]
             for (let table of table_notes) {
                 let table_top = parseInt(table.style.top)
                 if (table.style.left == lane_left + "px") {
                     //if (table_top == 740) {
-                    if (table_top > 2830 && table_top < 2950) {
+                //     if (Date.now() - startTime == note_s_index[0]) {
+                //         words.removeChild(table)
+                //         score_cnt++
+                //         score.textContent = `Score : ${score_cnt}`
+                //     }
+                    if (table_top > 680 && table_top < 800) {
                         words.removeChild(table)
                         score_cnt++
                         score.textContent = `Score : ${score_cnt}`
-                    }
-                }
+                     }
+                 }
             }
         }
 
         // 속도, 크기 조절
-        // let move_interval_ms = 10 // ms
+        // let move_interval_ms = 1200 // ms
         // let move_block = 20 // px
 
 
         // function move_words() {
         //     let tables = document.querySelectorAll("#words > table")
-        //     words_top = 600
+
+        //     words_top = 780
         //     for (let table of tables) {
         //         let top = parseInt(table.style.top) // 0px
-        //         //top += move_block
+        //         top += move_block
         //         table.style.top = top + "px"
         //         if (top > words_top) {
         //             words.removeChild(table)
@@ -389,6 +425,7 @@
         //         }
         //     }
         // }
+
 
         // let interval_id = setInterval(move_words, move_interval_ms)
 
