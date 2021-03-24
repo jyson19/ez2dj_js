@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -87,7 +86,7 @@
             float: left;
             margin: 0;
             animation: hide_word 12s infinite;
-            transition: 1s;
+            transition: 'all 1s';
         }
 
         #lane1 {
@@ -143,6 +142,43 @@
             transition: 1s;
         }
 
+        @-webkit-keyframes sparkle {
+            from {
+                background-position: 0% 100%;
+            }
+            to {
+                background-position: 200% 100%;
+            }
+        }
+
+        @keyframes sparkle {
+            from {
+                background-position: 0% 100%;
+            }
+            to {
+                background-position: 200% 100%;
+            }
+        }
+
+        #words > table:before {
+            -webkit-animation: sparkle 3s infinite linear;
+            animation: sparkle 3s infinite linear;
+            background: linear-gradient(90deg, #7FEFBD 0%, #FFF689 11%, #EC0B43 22%, #7FEFBD 33%, #FFF689 44%, #EC0B43 55%, #7FEFBD 66%, #FFF689 77%, #EC0B43 88%, #7FEFBD 100%);
+            background-size: 300% 100%;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            filter: blur(3px);
+            z-index: 1;
+            transform: scale(1.1) translateY(1px);
+        }
+
+        
+
         @keyframes hide_word {
             from {
                 color: black;
@@ -191,6 +227,8 @@
             align-items: center;
         }
 
+        
+
         #input>div {
             position: absolute;
             bottom: 0;
@@ -228,28 +266,68 @@
             <div id="fail">Missing Notes : 0</div>
         </div>
     </div>
+    
     <script>
         let words = document.querySelector("#words")
         let word = document.querySelector("#word")
         let score_cnt = 0
         let loss_cnt = 0;
 
-        function add_word() {
-            let table = document.createElement("table")
-            let left = 0
+        // note 생성
+        // function add_word() {
+        //     let table = document.createElement("table")
+        //     let left = 0
 
-            // note 생성
-            function lanechoice() {
-                // let leftlist = [0, 80, 160, 240, 320, 400, 480]
-                let leftlist = [0, 80, 160, 320, 400, 480]
-                let choice_cnum = Math.ceil(Math.random() * 7) - 1
-                left = leftlist[choice_cnum]
+        //     function lanechoice() {
+        //         // let leftlist = [0, 80, 160, 240, 320, 400, 480]
+        //         let leftlist = [0, 80, 160, 320, 400, 480]
+        //         let choice_cnum = Math.ceil(Math.random() * 7) - 1
+        //         left = leftlist[choice_cnum]
+        //     }
+        //     lanechoice()
+        //     table.style.left = `${left}px`
+        //     table.style.top = `-20px`
+        //     words.appendChild(table)
+        // }
+        
+        
+            let leftlist = [0, 80, 160, 320, 400, 480]
+            function add_note(left) {
+                let table = document.createElement("table")
+                table.style.left = `${left}px`
+                table.style.top = `-20px`
+                
+                words.appendChild(table)
             }
-            lanechoice()
-            table.style.left = `${left}px`
-            table.style.top = `-20px`
-            words.appendChild(table)
-        }
+            // lane 1
+            setTimeout(function() {add_note(leftlist[0])}, 350);
+            setTimeout(function() {add_note(leftlist[0])}, 1000);
+            
+            // lane 2
+            setTimeout(function() {add_note(leftlist[1])}, 200);
+            setTimeout(function() {add_note(leftlist[1])}, 1100);
+            setTimeout(function() {add_note(leftlist[1])}, 1600);
+
+
+            // lane 3
+            setTimeout(function() {add_note(leftlist[2])}, 800);
+            setTimeout(function() {add_note(leftlist[2])}, 1400);
+
+            // lane 5
+            setTimeout(function() {add_note(leftlist[3])}, 2000);
+
+
+            // lane 6
+            setTimeout(function() {add_note(leftlist[4])}, 1800);
+
+
+            // lane 7
+            setTimeout(function() {add_note(leftlist[5])}, 1600);
+
+
+
+
+
 
         (function () {
             document.addEventListener('keydown', function (e) {
@@ -259,32 +337,33 @@
                 if (keyCode == 83) { // s
                     let lane1 = document.querySelector("#lane1")
                     lane1.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightblue)';
-                    remove_note(lane1);
+                    remove_note(leftlist[0]);
                 } else if (keyCode == 68) { // d
                     let lane2 = document.querySelector("#lane2")
                     lane2.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightgreen)';
-                    remove_note(lane2);
+                    remove_note(leftlist[1]);
                 } else if (keyCode == 70) { // f
                     let lane3 = document.querySelector("#lane3")
                     lane3.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightblue)';
-                    remove_note(lane3);
+                    remove_note(leftlist[2]);
                     // } else if (keyCode == 32) { // spacebar
                     //     lane4.style.background = 'linear-gradient(rgba(0, 0, 0, 0), tomato)';
                 } else if (keyCode == 74) { // j
                     let lane5 = document.querySelector("#lane5")
                     lane5.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightblue)';
-                    remove_note(lane5);
+                    remove_note(leftlist[3]);
                 } else if (keyCode == 75) { // k
                     let lane6 = document.querySelector("#lane6")
                     lane6.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightgreen)';
-                    remove_note(lane6);
+                    remove_note(leftlist[4]);
                 } else if (keyCode == 76) { // l
                     let lane7 = document.querySelector("#lane7")
                     lane7.style.background = 'linear-gradient(rgba(0, 0, 0, 0), lightblue)';
-                    remove_note(lane7);
+                    remove_note(leftlist[5]);
                 }
             })
         })();
+        
         window.addEventListener("keyup", e => {
             const key = document.getElementById(e.key);
             // if (key) key.classList.remove('pressed');
@@ -297,12 +376,17 @@
             if (key) lane7.style.background = '';
         });
 
-        function remove_note(lane) {
+      
+        // 타겟 노트 제거
+        function remove_note(lane_left) {
             let table_notes = document.querySelectorAll("#words > table")
             let target_line = document.querySelector("#target_line")
+            let target_line_top = parseInt(target_line.style.top)
             for (let table of table_notes) {
-                if (table.style.left == lane.style.left) {
-                    if (table.style.top > `550px` && table.style.top < `680px`) {
+                let table_top = parseInt(table.style.top)
+                if (table.style.left == lane_left + "px") {
+                    //if (table_top == 740) {
+                    if (table_top > 680 && table_top < 800) {
                         words.removeChild(table)
                         score_cnt++
                         score.textContent = `Score : ${score_cnt}`
@@ -317,10 +401,9 @@
 
 
         function move_words() {
-            add_word() // 단어추가
             let tables = document.querySelectorAll("#words > table")
 
-            words_top = 770
+            words_top = 780
             for (let table of tables) {
                 let top = parseInt(table.style.top) // 0px
                 top += move_block
@@ -335,9 +418,12 @@
 
 
         let interval_id = setInterval(move_words, move_interval_ms)
-
+        
     </script>
     <iframe id="music" width="100" height="100" hidden src="https://www.youtube.com/embed/wq9zM5je8pg?autoplay=1&loop=1&enablejsapi=1&disablekb=1&rel=0" frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen></iframe>
+    canvas id='cvs'></canvas>
+
+
 </body>
 
 </html>
