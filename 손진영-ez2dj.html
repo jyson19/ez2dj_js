@@ -234,7 +234,7 @@
             <div id="lane6"></div>
             <div id="lane7"></div>
             <div id="target_line"></div>
-            <table class="movenote"></table>
+            <!-- <table class="movenote"></table> -->
         </div>
         <div id="input">
             <!-- <input type="text" name="" id="word" hidden> -->
@@ -261,7 +261,7 @@
             let table = document.createElement("table")
             table.style.left = `${left}px`
             table.style.top = `-20px`
-            table.setAttribute('class', 'movenote')
+            // table.setAttribute('class', 'movenote')
 
             words.appendChild(table)
         }
@@ -278,26 +278,26 @@
         // setTimeout(function () { add_note(leftlist[0]) }, 350);
 
         // lane 2
-         setTimeout(function () { add_note(leftlist[1]) }, 1600);
-         $(".movenote").animate({top: "620px"}, {duration: 2000, easing: "linear" });
+        setTimeout(function () { add_note(leftlist[1]) }, 1600);
+        // $(".movenote").animate({top: "620px"}, {duration: 2000, easing: "linear" });
         setTimeout(function () { add_note(leftlist[1]) }, 3200);
         setTimeout(function () { add_note(leftlist[1]) }, 3600);
 
 
         // lane 3
-         setTimeout(function () { add_note(leftlist[2]) }, 1400);
+        setTimeout(function () { add_note(leftlist[2]) }, 1400);
         setTimeout(function () { add_note(leftlist[2]) }, 3400);
 
         // lane 5
-         setTimeout(function () { add_note(leftlist[3]) }, 2000);
+        setTimeout(function () { add_note(leftlist[3]) }, 2000);
 
 
         // lane 6
-         setTimeout(function () { add_note(leftlist[4]) }, 1800);
+        setTimeout(function () { add_note(leftlist[4]) }, 1800);
 
 
         // lane 7
-         setTimeout(function () { add_note(leftlist[5]) }, 1600);
+        setTimeout(function () { add_note(leftlist[5]) }, 1600);
 
 
 
@@ -361,7 +361,7 @@
                 let table_top = parseInt(table.style.top)
                 if (table.style.left == lane_left + "px") {
                     //if (table_top == 740) {
-                    if (table_top > 2830 && table_top < 2950) {
+                    if (table_top > 990 && table_top < 1110) {
                         words.removeChild(table)
                         score_cnt++
                         score.textContent = `Score : ${score_cnt}`
@@ -370,27 +370,27 @@
             }
         }
 
-        // 속도, 크기 조절
-        // let move_interval_ms = 10 // ms
-        // let move_block = 20 // px
+        //속도, 크기 조절
+        let move_interval_ms = 50 // ms
+        let move_block = 20 // px
 
 
-        // function move_words() {
-        //     let tables = document.querySelectorAll("#words > table")
-        //     words_top = 600
-        //     for (let table of tables) {
-        //         let top = parseInt(table.style.top) // 0px
-        //         //top += move_block
-        //         table.style.top = top + "px"
-        //         if (top > words_top) {
-        //             words.removeChild(table)
-        //             loss_cnt++
-        //             fail.textContent = `Missing Notes : ${loss_cnt}`
-        //         }
-        //     }
-        // }
+        function move_words() {
+            let tables = document.querySelectorAll("#words > table")
+            words_top = 1100
+            for (let table of tables) {
+                let top = parseInt(table.style.top) // 0px
+                top += move_block
+                table.style.top = top + "px"
+                if (top > words_top) {
+                    words.removeChild(table)
+                    loss_cnt++
+                    fail.textContent = `Missing Notes : ${loss_cnt}`
+                }
+            }
+        }
 
-        // let interval_id = setInterval(move_words, move_interval_ms)
+        let interval_id = setInterval(move_words, move_interval_ms)
 
     </script>
     <iframe id="music" width="100" height="100" hidden

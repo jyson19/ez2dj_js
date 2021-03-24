@@ -140,7 +140,7 @@
             width: 80px;
             height: 20px;
 
-            animation: moveDown 1s linear;
+            animation: moveDown 2s linear;
 
             position: absolute;
             left: 0;
@@ -279,14 +279,12 @@
         // setTimeout(function () { add_intro_note(leftlist[0], 460) }, 0);
 
         
-        var note_s = [
-            setTimeout(function () { add_note(leftlist[0]) }, 350),
-            setTimeout(function () { add_note(leftlist[0]) }, 1000),
-            setTimeout(function () { add_note(leftlist[0]) }, 1100),
-            setTimeout(function () { add_note(leftlist[0]) }, 1200),
-            setTimeout(function () { add_note(leftlist[0]) }, 1300),
-            setTimeout(function () { add_note(leftlist[0]) }, 1400)
-        ];
+        // var note_s = [350, 1000, 1100, 1200, 1300, 1400];
+            setTimeout(function () { add_note(leftlist[0]) }, 350);
+            setTimeout(function () { add_note(leftlist[0]) }, 1000);
+            setTimeout(function () { add_note(leftlist[0]) }, 1200);
+            setTimeout(function () { add_note(leftlist[0]) }, 1400);
+        
 
         // lane 2
         // setTimeout(function () { add_intro_note(leftlist[1], 430) }, 0);
@@ -311,8 +309,7 @@
         // lane 7
         // setTimeout(function () { add_note(leftlist[5]) }, 1600);
 
-
-
+        
 
 
 
@@ -390,17 +387,16 @@
             for (let table of table_notes) {
                 let table_top = parseInt(table.style.top)
                 if (table.style.left == lane_left + "px") {
-                    //if (table_top == 740) {
-                //     if (Date.now() - startTime == note_s_index[0]) {
-                //         words.removeChild(table)
-                //         score_cnt++
-                //         score.textContent = `Score : ${score_cnt}`
-                //     }
-                    if (table_top > 680 && table_top < 800) {
+                    if (Date.now() - startTime > 300 || Date.now() - startTime < 400) {
                         words.removeChild(table)
                         score_cnt++
                         score.textContent = `Score : ${score_cnt}`
-                     }
+                    }
+                    // if (table_top > 680 && table_top < 800) {
+                    //     words.removeChild(table)
+                    //     score_cnt++
+                    //     score.textContent = `Score : ${score_cnt}`
+                    //  }
                  }
             }
         }
