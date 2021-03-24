@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>Document</title>
+
+    <style>
+        .startButton{
+            width: 100px;
+            height: 100px;
+            border : 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="music" class="song" hidden src="https://www.youtube.com/embed/wq9zM5je8pg?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- <iframe id="music" class="song" width="2100" height="900" src="https://www.youtube.com/embed/wq9zM5je8pg?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allow="encrypted-media;" allowfullscreen></iframe> -->
+    <!-- <iframe id="music" width="757" height="426" src="https://www.youtube.com/embed/UgHKb_7884o?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+    <div class="startButton">버튼</div>
+
+    <script>
+        $(function(){
+            let startButton = $(".startButton");
+            startButton.click(function(){
+                // $(this).hide();
+                // $(this).parent().hide();
+                $(".song")[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+            });
+        })
+    </script>
+</body>
+</html>

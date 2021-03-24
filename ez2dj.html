@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Rhythm" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <meta
+      property="og:description"
+      content="A vertical scrolling rhythm game where you have to hit the notes falling down, which will appear according to the music."
+    />
+
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
+    <title>EZ2DJ</title>
+  </head>
+
+  <body>
+    <iframe class="song" hidden src="https://www.youtube.com/embed/wq9zM5je8pg?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <main>
+      <div class="game">
+        <div class="hit">
+          <div class="hit__combo"></div>
+          <div class="hit__accuracy"></div>
+        </div>
+
+        <div class="track-container"></div>
+
+        <div class="key-container">
+          <div class="key key--s key--blue">
+            <div class="keypress keypress--blue"></div>
+            <span>S</span>
+          </div>
+          <div class="key key--d key--red">
+            <div class="keypress keypress--red"></div>
+            <span>D</span>
+          </div>
+          <div class="key key--f key--blue">
+            <div class="keypress keypress--blue"></div>
+            <span>F</span>
+          </div>
+          <div class="key key--space key--orange">
+            <div class="keypress keypress--orange"></div>
+            <span>Space</span>
+          </div>
+          <div class="key key--j key--blue">
+            <div class="keypress keypress--blue"></div>
+            <span>J</span>
+          </div>
+          <div class="key key--k key--red">
+            <div class="keypress keypress--red"></div>
+            <span>K</span>
+          </div>
+          <div class="key key--l key--blue">
+            <div class="keypress keypress--blue"></div>
+            <span>L</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu">
+        <div>
+          <h1>맑은고딕</h1>
+          <p>
+            123
+          </p>
+          
+        </div>
+
+        <div class="menu__song">
+          
+        </div>
+
+        <div class="menu__config">
+          <div class="config__speed">
+            <h2>Speed</h2>
+            <div>
+              <a class="btn btn--small btn--selected" href="#">1x</a>
+              <a class="btn btn--small" href="#">2x</a>
+              <a class="btn btn--small" href="#">3x</a>
+            </div>
+          </div>
+          <div class="config__challenge">
+            <h2>Challenge</h2>
+            <div><a class="btn btn--small" href="#">Fade</a></div>
+          </div>
+        </div>
+
+        <div class="menu_start">
+          <a class="btn btn--primary btn--start" href="#">Start</a>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div class="summary__timer"></div>
+        <!-- <div class="summary__result">
+          <h2 class="result__heading">Clear</h2>
+          <div class="result__accuracy perfect">
+            <p class="accuracy__heading">Perfect</p>
+            <span>:</span>
+            <p class="accuracy__count perfect__count"></p>
+          </div>
+          <div class="result__accuracy good">
+            <p class="accuracy__heading">Good</p>
+            <span>:</span>
+            <p class="accuracy__count good__count"></p>
+          </div>
+          <div class="result__accuracy bad">
+            <p class="accuracy__heading">Bad</p>
+            <span>:</span>
+            <p class="accuracy__count bad__count"></p>
+          </div>
+          <div class="result__accuracy miss">
+            <p class="accuracy__heading">Miss</p>
+            <span>:</span>
+            <p class="accuracy__count miss__count"></p>
+          </div>
+          <div class="result__accuracy combo">
+            <p class="accuracy__heading">Max Combo</p>
+            <span>:</span>
+            <p class="accuracy__count combo__count"></p>
+          </div>
+          <div class="result__accuracy score">
+            <p class="accuracy__heading">Score</p>
+            <span>:</span>
+            <p class="accuracy__count score__count"></p>
+          </div>
+        </div> -->
+      </div>
+    </main>
+
+    <script src="scripts/song.js"></script>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
