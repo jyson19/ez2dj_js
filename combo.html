@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+<style>
+    #wrap {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+
+        background: snow;
+        width: 570px;
+        height: 700px;
+        margin: 0 auto;
+        border: #19ce60 5px solid;
+    }
+
+    #combo {
+        justify-content: center;
+        align-items: center;
+        display: inline-block;
+        font-family: "Open Sans";
+        font-style: Bold 700;
+        /* font-size: 50px; */
+        width: 50%;
+        height: 25%;
+        border: 3px solid black;
+    }
+
+    #combo_word {
+        font-size: 35px;
+        position: relative;
+        width: 80%;
+        margin: 0 auto; 
+        text-align: center;
+        /* float: left; */
+        opacity: 0.7;
+    }
+
+    #score {
+        font-size: 70px;
+        position: relative;
+        width: 80%;
+        height: 30%;
+        bottom: 0px;
+        margin: 0 auto; 
+        text-align: center;
+        opacity: 0.7;
+    }
+    h2, h4 {
+        /* position: relative;
+        width: 100%; */
+        margin: 0 auto;
+        padding: 0;
+        /* background: linear-gradient(to bottom, linen 10%, black 15%,  #ff5800 75%, #f05 87%, #ff7fd3 95%, linen 100%); */
+        background: linear-gradient(linen 10%, orange 20%, red 60%, linen 90%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="combo">
+            <div id="combo_word">
+                <h4>combo</h4>
+            </div>
+            <div id="score">
+                <h2>1</h2>
+            </div>
+        </div>
+    </div>
+    <script>
+        function combo_count() {
+            let cnt = document.querySelector("#score > h2")
+            let cw = document.querySelector("#combo_word")
+            let sc = document.querySelector("#score")
+            
+
+            var timer = setInterval(function(){
+                $("#combo_word").animate({top: "0px"}, 1);
+                $("#score").animate({top: "0px"}, 1)
+                cnt.innerHTML = (Number(cnt.innerHTML) + 1);
+                $("#combo_word").animate({top: "30px"}, 20);
+                $("#score").animate({top: "30px"}, 20);
+            }, 150)
+        }
+        combo_count()
+    
+        // function 
+    
+    </script>
+</body>
+</html>
