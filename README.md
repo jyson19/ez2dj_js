@@ -6,7 +6,7 @@
 
 ---
 
-#### 소개
+## 소개
 
 <table class="tg">
     <tr align="left">
@@ -55,3 +55,7 @@
 <br/>
 
 ---
+
+## 화면
+
+<img src="https://github.com/jyson19/ez2dj_js/tree/main/document/ez2dj_demo.gif.gif?raw=true" width="100%">
