@@ -58,6 +58,16 @@ h2 {
   text-transform: uppercase;
 }
 
+/* #score_board {
+  display: flex;
+  flex: 0 0 calc(100% / 2);
+  flex-direction: column;
+  max-width: 35rem;
+  height: 8%;
+  margin: 0 auto;
+  position: relative;
+} */
+
 .game {
   position: relative;
   display: flex;
@@ -69,7 +79,6 @@ h2 {
   /* background: black; */
   background: url(https://upload.wikimedia.org/wikipedia/commons/2/2f/Hubble_ultra_deep_field.jpg);
   margin: 0 auto;
-  position: relative;
 }
 
 .hit {
@@ -110,37 +119,6 @@ h4 {
   -webkit-text-fill-color: transparent;
   opacity: 0.7;
   bottom: 0px;
-}
-
-.hit__accuracy {
-  position: absolute;
-  width: 20%;
-  height: 50%;
-  font-size: 4rem;
-}
-
-.hit__accuracy--perfect {
-  color: var(--perfect-color);
-  opacity: 0;
-  animation: fade 1s;
-}
-
-.hit__accuracy--good {
-  color: var(--good-color);
-  opacity: 0;
-  animation: fade 1s;
-}
-
-.hit__accuracy--bad {
-  color: var(--bad-color);
-  opacity: 0;
-  animation: fade 1s;
-}
-
-.hit__accuracy--miss {
-  color: var(--miss-color);
-  opacity: 0;
-  animation: fade 1s;
 }
 
 .track-container {
@@ -302,15 +280,6 @@ h4 {
   justify-content: space-around;
 }
 
-.heart {
-  color: rgb(255, 59, 59);
-}
-
-.author {
-  text-decoration: underline;
-  color: white;
-}
-
 .btn:link,
 .btn:visited {
   display: inline-block;
@@ -355,18 +324,14 @@ h4 {
   opacity: 0.8;
 }
 
-.config__challenge{
-  border-radius: 25px 25px 25px 25px;
-  background-color: black;
-  opacity: 0.8;
-}
+
 
 .config__speed .btn--selected {
   background: white;
   color: black;
 }
 
-.config__challenge .btn--selected {
+.btn--selected {
   background: white;
   color: black;
 }
@@ -392,26 +357,6 @@ h4 {
   transition: all 1s;
 }
 
-.accuracy__count {
-  flex: 0 0 45%;
-  text-align: right;
-}
-
-.perfect {
-  color: var(--perfect-color);
-}
-
-.good {
-  color: var(--good-color);
-}
-
-.bad {
-  color: var(--bad-color);
-}
-
-.miss {
-  color: var(--miss-color);
-}
 
 .combo {
   color: var(--maxcombo-color);
