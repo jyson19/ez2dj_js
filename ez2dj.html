@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Rhythm" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <meta
       property="og:description"
       content="A vertical scrolling rhythm game where you have to hit the notes falling down, which will appear according to the music."
     />
 
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="css/style.css" />
     <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
     <title>EZ2DJ</title>
   </head>
@@ -21,8 +22,11 @@
     <main>
       <div class="game">
         <div class="hit">
+          <div id="combo_word">
+            <!-- <h4>combo</h4> -->
+          </div>
           <div class="hit__combo"></div>
-          <div class="hit__accuracy"></div>
+          <!-- <div class="hit__accuracy">combo</div> -->
         </div>
 
         <div class="track-container"></div>

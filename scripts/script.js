@@ -249,11 +249,11 @@ var isHolding = {
   
   var displayAccuracy = function (accuracy) {
     var accuracyText = document.createElement('div');
-    document.querySelector('.hit__accuracy').remove();
-    accuracyText.classList.add('hit__accuracy');
-    accuracyText.classList.add('hit__accuracy--' + accuracy);
+    // document.querySelector('.hit__accuracy').remove();
+    // accuracyText.classList.add('hit__accuracy');
+    // accuracyText.classList.add('hit__accuracy--' + accuracy);
     accuracyText.innerHTML = accuracy;
-    document.querySelector('.hit').appendChild(accuracyText);
+    // document.querySelector('.hit').appendChild(accuracyText);
   };
   
   var showHitEffect = function (index) {
@@ -268,11 +268,20 @@ var isHolding = {
   };
   
   var updateCombo = function (judgement) {
+    
     if (judgement === 'bad' || judgement === 'miss') {
       combo = 0;
       comboText.innerHTML = '';
+      combo_word.innerHTML = '';
+      combo_word.style.opacity = 0;
     } else {
+      // $("#combo_word").animate({top: "0px"}, 1);
+      $(".hit").animate({top: "50%"}, 1)
+      combo_word.innerHTML = "<h4>combo</h4>";
+      combo_word.style.opacity = 0.7;
       comboText.innerHTML = ++combo;
+      // $("#combo_word").animate({top: "30px"}, 20);
+      $(".hit").animate({top: "55%"}, 20);
     }
   };
   
@@ -302,7 +311,7 @@ var isHolding = {
     trackContainer = document.querySelector('.track-container');
     keypress = document.querySelectorAll('.keypress');
     comboText = document.querySelector('.hit__combo');
-  
+    combo_word = document.querySelector('#combo_word');
     initializeNotes();
     setupSpeed();
     setupChallenge();
