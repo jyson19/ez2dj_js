@@ -228,7 +228,8 @@ var s = {
 { duration: 3, delay: 104.2 },
 { duration: 3, delay: 104.6 },
 { duration: 3, delay: 104.9 },
-{ duration: 3, delay: 105.3 }
+{ duration: 3, delay: 105.3 },
+{ duration: 3, delay: 105.7 }
       
 
     ]

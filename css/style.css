@@ -66,7 +66,8 @@ h2 {
   max-width: 35rem;
   height: 80%;
   top: 10%;
-  background: black;
+  /* background: black; */
+  background: url(https://upload.wikimedia.org/wikipedia/commons/2/2f/Hubble_ultra_deep_field.jpg);
   margin: 0 auto;
   position: relative;
 }
@@ -143,6 +144,7 @@ h4 {
 }
 
 .track-container {
+  
   display: flex;
   flex: 1 0 auto;
 }
@@ -164,8 +166,9 @@ h4 {
 
 .key {
   flex: 0 0 calc(100% / 7);
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
+  /* border-left: 1px solid grey;
+  border-right: 1px solid grey; */
+  border: 3px lightslategrey groove;
   text-align: center;
   position: relative;
   font-size: 1.6rem;
@@ -311,6 +314,9 @@ h4 {
 .btn:link,
 .btn:visited {
   display: inline-block;
+  border-radius: 25px 25px 25px 25px;
+  background-color: black;
+  opacity: 0.8;
   border: 1px solid white;
   font-size: 1.6rem;
   text-transform: uppercase;
@@ -319,7 +325,10 @@ h4 {
   color: white;
   margin: 0 auto;
   transition: all 0.2s;
+  
 }
+
+
 
 .btn:hover,
 .btn:active {
@@ -338,6 +347,18 @@ h4 {
 .btn--primary {
   border-radius: 1rem;
   padding: 2rem 4rem;
+}
+
+.config__speed {
+  border-radius: 25px 25px 25px 25px;
+  background-color: black;
+  opacity: 0.8;
+}
+
+.config__challenge{
+  border-radius: 25px 25px 25px 25px;
+  background-color: black;
+  opacity: 0.8;
 }
 
 .config__speed .btn--selected {
@@ -369,35 +390,6 @@ h4 {
   font-size: 6rem;
   opacity: 0;
   transition: all 1s;
-}
-
-.summary__result {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  width: 80%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  opacity: 0;
-  transition: all 2s;
-}
-
-.result__heading {
-  font-size: 5rem;
-  padding: 2rem;
-}
-
-.result__accuracy {
-  display: flex;
-  font-size: 3rem;
-  padding: 1rem;
-}
-
-.accuracy__heading {
-  flex: 0 0 45%;
-  text-align: left;
 }
 
 .accuracy__count {

@@ -86,20 +86,6 @@ var isHolding = {
     });
   };
   
-  var setupChallenge = function () {
-    var enabled = false;
-    var challenge = document.querySelector('.config__challenge');
-    challenge.addEventListener('click', function (event) {
-      if (enabled) {
-        event.target.className = 'btn btn--small';
-        enabled = false;
-      } else {
-        event.target.className = 'btn btn--small btn--selected';
-        enabled = true;
-        updateAnimation();
-      }
-    });
-  };
   
   var updateAnimation = function () {
     animation = 'moveDownFade';
@@ -112,7 +98,6 @@ var isHolding = {
       isPlaying = true;
       startTime = Date.now();
   
-      // startTimer(song.duration);
       document.querySelector('.menu').style.opacity = 0;
             $(".song")[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
         document.querySelectorAll('.note').forEach(function (note) {
@@ -121,42 +106,7 @@ var isHolding = {
     });
   };
   
-  // var startTimer = function (duration) {
-  //   var display = document.querySelector('.summary__timer');
-  //   var timer = duration;
-  //   var minutes;
-  //   var seconds;
-  
-  //   display.style.display = 'block';
-  //   display.style.opacity = 1;
-  
-  //   var songDurationInterval = setInterval(function () {
-  //     minutes = Math.floor(timer / 60);
-  //     seconds = timer % 60;
-  //     minutes = minutes < 10 ? '0' + minutes : minutes;
-  //     seconds = seconds < 10 ? '0' + seconds : seconds;
-  //     display.innerHTML = minutes + ':' + seconds;
-  
-  //     if (--timer < 0) {
-  //       clearInterval(songDurationInterval);
-  //       showResult();
-  //       comboText.style.transition = 'all 1s';
-  //       comboText.style.opacity = 0;
-  //     }
-  //   }, 1000);
-  // };
-  
-  var showResult = function () {
-    // document.querySelector('.perfect__count').innerHTML = hits.perfect;
-    // document.querySelector('.good__count').innerHTML = hits.good;
-    // document.querySelector('.bad__count').innerHTML = hits.bad;
-    // document.querySelector('.miss__count').innerHTML = hits.miss;
-    // document.querySelector('.combo__count').innerHTML = maxCombo;
-    // document.querySelector('.score__count').innerHTML = score;
-    // document.querySelector('.summary__timer').style.opacity = 0;
-    // document.querySelector('.summary__result').style.opacity = 1;
-  };
-  
+ 
   var setupNoteMiss = function () {
     trackContainer.addEventListener('animationend', function (event) {
       var index = event.target.classList.item(1)[6];
@@ -249,11 +199,7 @@ var isHolding = {
   
   var displayAccuracy = function (accuracy) {
     var accuracyText = document.createElement('div');
-    // document.querySelector('.hit__accuracy').remove();
-    // accuracyText.classList.add('hit__accuracy');
-    // accuracyText.classList.add('hit__accuracy--' + accuracy);
     accuracyText.innerHTML = accuracy;
-    // document.querySelector('.hit').appendChild(accuracyText);
   };
   
   var showHitEffect = function (index) {
@@ -314,7 +260,7 @@ var isHolding = {
     combo_word = document.querySelector('#combo_word');
     initializeNotes();
     setupSpeed();
-    setupChallenge();
+    // setupChallenge();
     setupStartButton();
     setupKeys();
     setupNoteMiss();
