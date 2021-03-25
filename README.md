@@ -58,4 +58,4 @@
 
 ## 화면
 
-<img src="https://github.com/jyson19/ez2dj_js/blob/main/document/ez2dj_demo.gif?raw=true" width="100%">
+<img src="https://github.com/jyson19/ez2dj_js/blob/main/document/ez2dj_demo.gif?raw=true" width="70%">
