@@ -13,6 +13,17 @@
             padding: 0;
         }
 
+        body{
+            /* width: 100vw;
+        height: 100vh; */
+        background-size: 100%;
+        background-image: url("https://i.gifer.com/fyrX.gif");
+            /* background-color: darkblue; */
+            /* background-color: darkslateblue;
+            background-color: darkslategrey; */
+            /* background: linear-gradient(darkblue, black, darkslategrey); */
+        }
+
         #bgimg {
             width: 100%;
             height: 100%;
@@ -24,7 +35,7 @@
             width: 570px;
             height: 700px;
             margin: 0 auto;
-            border: #19ce60 5px solid;
+            border: #black 5px solid;
         }
 
         h1 {
@@ -72,9 +83,9 @@
             border: 5px groove slategray;
             position: relative;
             overflow: hidden;
-
+            
         }
-
+        
         #lane1,
         #lane2,
         #lane3,
@@ -89,36 +100,36 @@
             margin: 0;
             transition: 'all 1s';
         }
-
+        
         #lane1 {
             left: 0px;
         }
-
+        
         #lane2 {
             left: 80px;
         }
-
+        
         #lane3 {
             left: 160px;
         }
-
+        
         #lane4 {
             left: 240px;
         }
-
+        
         #lane5 {
             left: 320px;
         }
-
+        
         #lane6 {
             left: 400px;
         }
-
+        
         #lane7 {
             left: 480px;
             float: right;
         }
-
+        
         #target_line {
             position: absolute;
             width: 570px;
@@ -126,49 +137,49 @@
             height: 30px;
             background: linear-gradient(rgba(0, 0, 0, 0), lightslategrey, rgba(0, 0, 0, 0));
         }
-
+        
         @keyframes moveDown {
             0% { top: -1.5rem; }
             98% { top: 100%; opacity: 1; }
             100% { top: 105%; opacity: 0; }
         }
-
+        
         #words>table {
             border: 5px groove mediumaquamarine;
             background: navajowhite;
             /* background: linear-gradient(rgba(0, 0, 255, 0.3), blue); */
             width: 80px;
             height: 20px;
-
+            
             animation: moveDown 2s linear;
-
+            
             position: absolute;
             left: 0;
             top: 0;
             margin: 0;
             transition: 1s;
         }
-
+        
         @-webkit-keyframes sparkle {
             from {
                 background-position: 0% 100%;
             }
-
+            
             to {
                 background-position: 200% 100%;
             }
         }
-
+        
         @keyframes sparkle {
             from {
                 background-position: 0% 100%;
             }
-
+            
             to {
                 background-position: 200% 100%;
             }
         }
-
+        
         #words>table:before {
             -webkit-animation: sparkle 3s infinite linear;
             animation: sparkle 3s infinite linear;
@@ -185,17 +196,17 @@
             z-index: 1;
             transform: scale(1.1) translateY(1px);
         }
-
         
-
-
+        
+        
+        
         #input {
             background: url("https://post-phinf.pstatic.net/MjAxODA0MzBfMTMx/MDAxNTI1MDY5Mjk4Mjg2.51OWZ6gUjfTDoQ5lYE7StRChvsJRIyK0tQGw2N10EUUg.ozmnTHMNF4zGMg4I7sPwh8AsZ6bkWFgy7B0MsEJATEsg.JPEG/1_2.jpg?type=w1200");
             position: relative;
             height: 90px;
             display: flex;
         }
-
+        
         #input>.note {
             border: 3px lightslategrey groove;
             background-color: burlywood;
@@ -210,9 +221,9 @@
             justify-content: center;
             align-items: center;
         }
-
-
-
+        
+        
+        
         #input>div {
             position: absolute;
             bottom: 0;
@@ -220,12 +231,14 @@
             height: 45px;
             float: left;
         }
-    </style>
+        </style>
 </head>
 
 <body>
-    <img src="https://img2.quasarzone.com/editor/2020/06/24/2a18564000e81fa330caaeef94608eb5.jpg" alt="" id="bgimg">
-    <h1>What you need to learn</h1>
+    <!-- <iframe src="https://gifer.com/embed/IrF" width=480 height=678.222 frameBorder="0" allowFullScreen></iframe> -->
+    <!-- <div id="bgimg" style="padding-top:141.296%;position:relative;"><iframe src="https://gifer.com/embed/IrF" width="100%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0" allowFullScreen></iframe></div><p><a href="https://gifer.com">via GIFER</a></p>             -->
+    <!-- <img src="https://img2.quasarzone.com/editor/2020/06/24/2a18564000e81fa330caaeef94608eb5.jpg" alt="" id="bgimg"> -->
+    <h1>123</h1>
     <div id="wrap">
         <div id="words">
             <!-- <div id="combo"></div> -->
